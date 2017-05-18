@@ -1,0 +1,69 @@
+html, body {
+  //background-color: #36393e !important;
+  //background: url("../img/2wuJNqK.jpg");
+  background-color: #333642;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px
+  }
+}
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top-nav-container {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.container-padding {
+  padding: 5px 10px;
+}
+
+@media (min-width: 558px) {
+  .container-padding {
+    padding: 10px 20px;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}

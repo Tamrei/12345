@@ -1,0 +1,60 @@
+
+
+<div class="animated fadeIn">
+    <div class="row">
+        <!--<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" *ngFor="let data of games">-->
+        <div *ngIf="profile" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <profile [_id]="profile.user._id" [name]="profile.user.name" [about]="profile.user.about || ''"></profile>
+        </div>
+
+        <div *ngIf="profile" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="ui styled accordion">
+                <div *ngFor="let game of profile.games" (click)="loadGameFeed(game._id)">
+                    <div class="title">
+                        <div class="ui middle aligned list">
+                            <div class="item">
+                                <img class="ui avatar image" src="{{game.images}}">
+                                <div class="content">
+                                    <div class="header">{{game.name}}</div>
+                                </div>
+                                <!--<i class="dropdown icon"></i>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="ui left labeled mini button" (click)="getProposetUsers(game._id)" tabindex="0"
+                             style="margin-bottom: 10px;">
+                            <a class="ui basic right label">
+                                56
+                            </a>
+                            <div class="ui mini  button">
+                                Looking for m8tes
+                            </div>
+                        </div>
+
+                        <div class="ui mini button" style="margin-bottom: 10px;" (click)="createPropose(game._id)">
+                            <!--<i class="heart icon"></i>--> Create a propose
+                        </div>
+
+
+                        <div *ngFor="let proposal of game.proposals">
+                            <p class="transition">{{proposal.description}}</p>
+                        </div>
+
+                        <!--<p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and-->
+                            <!--faithfulness, it can be found as a welcome guest in many households across the world.</p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="profile" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="ui raised segment" style="min-height: 100px;">
+                <div class="ui dimmer" [ngClass]="{'active': feedLoading}">
+                    <div class="ui indeterminate text loader">Loading</div>
+                </div>
+                <feed [messages]="messages"></feed>
+            </div>
+        </div>
+    </div>
+</div>

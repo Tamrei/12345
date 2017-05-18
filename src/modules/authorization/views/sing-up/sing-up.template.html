@@ -1,0 +1,28 @@
+<div style="padding-top: 100px;">
+    <form class="ui large form" [formGroup]="singUpForm" [ngClass]="{'loading': loading}" novalidate>
+        <div class="ui segment">
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    <input type="text" name="email" placeholder="E-mail address"
+                           [formControl]="singUpForm.controls['login']">
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input type="password" name="password" placeholder="Password"
+                           [formControl]="singUpForm.controls['password']">
+                </div>
+            </div>
+            <button type="button" class="ui fluid large teal submit button"
+                    (click)="submit()" [disabled]="!singUpForm.valid">
+                Sing up
+            </button>
+        </div>
+    </form>
+
+    <div class="ui message text-center">
+        Not new to us? <a [routerLink]="['/login']">Login</a>
+    </div>
+</div>

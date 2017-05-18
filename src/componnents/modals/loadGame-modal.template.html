@@ -1,0 +1,45 @@
+<div class="ui modal" id="loadGame-modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Add new game
+    </div>
+
+    <div class="image content">
+        <div *ngIf="!game" class="ui medium image">
+            <img src="http://placehold.it/300x140">
+        </div>
+
+        <div *ngIf="game" class="ui medium image">
+            <img src="{{game.images}}">
+        </div>
+        <div class="description">
+            <div class="ui header">Game id in stream</div>
+            <div class="ui action icon input">
+                <input type="text" placeholder="Search..." [(ngModel)]="steamId">
+                <!--<i class="search icon"></i>-->
+                <button class="ui button" [ngClass]="{'loading': loading}" (click)="search()">Search</button>
+            </div>
+
+            <!--<div *ngIf="game" [@opacityTransition]="game" class="ui header">{{game.name}}</div>-->
+
+            <p *ngIf="game" [@opacityTransition]="game">{{game.name}}</p>
+
+            <!--<div *ngIf="game">-->
+            <!--{{game | json}}-->
+            <!--</div>-->
+
+        </div>
+    </div>
+    <div class="actions">
+        <!--<button [disabled]="!game" class="ui black button" (click)="reset()">-->
+            <!--Find another one-->
+        <!--</button>-->
+
+        <button [disabled]="!game" class="ui right labeled icon button" (click)="save()">
+            Save
+            <i class="checkmark icon"></i>
+        </button>
+
+    </div>
+
+</div>

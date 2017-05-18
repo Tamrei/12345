@@ -1,0 +1,40 @@
+<navigation-bar (notifyParent)="getNotification($event)"></navigation-bar>
+
+<div class="home" id="home" style="padding-left: 84px;">
+    <div class="container-fluid container-padding">
+
+        <!--<div class="ui compact menu">-->
+            <!--<a class="item">-->
+                <!--<i class="icon mail mini"></i> Messages-->
+                <!--<div class="floating ui red label mini">22</div>-->
+            <!--</a>-->
+            <!--<a class="item">-->
+                <!--<i class="icon users mini"></i> Friends-->
+                <!--<div class="floating ui teal label mini">22</div>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <div class="animated fadeIn top-nav-container">
+            <button class="tiny ui button floating">
+                <i class="icon mail"></i>
+                My games
+                <!--<div class="ui red label mini">22</div>-->
+            </button>
+
+            <button class="tiny ui button floating" (click)="messagesContainer()">
+                <i class="icon mail"></i>
+                Messages
+                <!--<div class="ui red label mini">22</div>-->
+            </button>
+
+            <!--<i class="icon mail mini"></i> Messages-->
+            <!--<div class="floating ui red label mini">22</div>-->
+        </div>
+
+        <router-outlet></router-outlet>
+        <messages-panel></messages-panel>
+    </div>
+</div>
+
+<confirm-modal></confirm-modal>
+<temp-toast></temp-toast>

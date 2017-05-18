@@ -1,0 +1,23 @@
+<div class="animated fadeIn top-nav-container">
+    <button class="tiny ui labeled icon button" (click)="addGame()">
+        <i class="plus icon"></i>
+        Add new game
+    </button>
+
+    <button class="tiny ui button" (click)="toggleGames()">
+        Toggle
+    </button>
+</div>
+
+<div class="animated" [ngClass]="{'fadeInRight': toggle, 'fadeOutLeft': !toggle}">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" *ngFor="let data of games"
+             [@growShrinkStaticStart]="animationInitialized.toString()"
+             (@growShrinkStaticStart.done)="animationInitialized = true"
+        >
+            <game-item (deleteEvent)="deleteEvent($event)" [_id]="data._id" [name]="data.name" [description]="data.description" [imageUrl]="data.images"></game-item>
+        </div>
+    </div>
+</div>
+
+<loadGame-modal></loadGame-modal>

@@ -1,0 +1,15 @@
+{
+  "globalDependencies": {
+    "alertify": "registry:dt/alertify#0.3.11+20161128184045",
+    "core-js": "registry:dt/core-js#0.0.0+20160725163759",
+    "jquery": "registry:dt/jquery#1.10.0+20161119044246",
+    "node": "registry:dt/node#6.0.0+20160909174046",
+    "semantic-ui": "registry:dt/semantic-ui#2.2.0+20170126123915",
+    "socket.io-client": "registry:dt/socket.io-client#1.4.4+20161116080703",
+    "sprintf-js": "registry:dt/sprintf-js#0.0.0+20160510002910",
+    "swiper": "registry:dt/swiper#2.0.0+20161117131614"
+  },
+  "dependencies": {
+    "lodash": "registry:npm/lodash#4.0.0+20161015015725"
+  }
+}

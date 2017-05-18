@@ -1,0 +1,26 @@
+<div class="animated fadeIn top-nav-container">
+    <button class="tiny ui button" (click)="state1()">
+        My games
+    </button>
+
+    <button class="tiny ui button" (click)="state2()">
+        Messages
+    </button>
+</div>
+
+<!-- [ngClass]="{'fadeInRight': toggle, 'fadeOutLeft': !toggle}" -->
+
+<div class="animated" *ngIf="firstState" [ngClass]="{'fadeIn': firstState, 'fadeOut': !firstState}">
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" *ngFor="let data of games">
+            <main-game-item [_id]="data._id" [name]="data.name" [imageUrl]="data.images"></main-game-item>
+        </div>
+    </div>
+</div>
+
+<div class="animated" *ngIf="!firstState" [ngClass]="{'fadeIn': !firstState, 'fadeOut': firstState}">
+
+    <div class="ui raised segment">
+       <feed [messages]="messages"></feed>
+    </div>
+</div>

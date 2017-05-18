@@ -1,0 +1,76 @@
+<div class="messages-container" [ngClass]="{'active': active, '': !active}">
+    <!--<i class="remove icon big" style="float: left;" (click)="close()"></i>-->
+
+    <div class="ui secondary pointing menu">
+        <a class="item" (click)="all()">
+            All
+        </a>
+        <a class="item" (click)="chat()">
+            Messages
+        </a>
+        <a class="item" (click)="contactsState()">
+            Profile
+        </a>
+        <div class="right menu">
+            <a class="ui item">
+                Temp
+            </a>
+        </div>
+    </div>
+
+    <div *ngIf="state == s_feed" class="ui feed">
+        <div *ngFor="let data of messages" class="event">
+            <div class="label">
+                <img src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
+            </div>
+            <div class="content">
+                <div class="summary">
+                    <a (click)="viewProfile(data.from)">{{data.fromName}}</a> typed to you
+                    <div class="date">
+                        {{data.created | date:'yMdjm'}}
+                    </div>
+                </div>
+                <div class="extra text">
+                    {{data.content}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="state == s_chat">
+
+        <div class="ui comments" id="chatMessages" style="max-height: 825px; overflow: auto;">
+            <div *ngFor="let data of userChat" class="comment">
+                <a *ngIf="data.isToMe" class="avatar">
+                    <img src="https://semantic-ui.com/images/avatar/small/joe.jpg">
+                </a>
+                <div class="content">
+                    <a *ngIf="data.isToMe" class="author">{{data.fromName}}</a>
+                    <a *ngIf="!data.isToMe" class="author">Me</a>
+                    <div class="metadata">
+                        <div class="date">{{data.created}}</div>
+                    </div>
+                    <div class="text">
+                        <p>{{data.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="ui reply form" [formGroup]="chatForm" novalidate>
+            <div class="field">
+                <textarea rows="2" [formControl]="chatForm.controls['message']"></textarea>
+            </div>
+            <button class="ui primary submit labeled icon button" (click)="pushMessage()" [disabled]="!chatForm.valid">
+                <i class="icon edit"></i> Add Comment
+            </button>
+        </form>
+    </div>
+
+    <div *ngIf="state == s_contacts">
+        <div *ngFor="let data of contacts">
+            {{data | json}}
+        </div>
+    </div>
+
+</div>

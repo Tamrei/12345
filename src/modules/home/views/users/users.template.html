@@ -1,0 +1,9 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" *ngFor="let data of users">
+            <user [_id]="data._id" [name]="data.name" [password]="data.password" [description]="data._id"></user>
+        </div>
+    </div>
+</div>
+
+

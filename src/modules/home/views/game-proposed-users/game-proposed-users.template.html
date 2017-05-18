@@ -1,0 +1,9 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" *ngFor="let data of res">
+            <proposed-user [gameId]="gameId" [_id]="data.user._id" [name]="data.user.name" [password]="'?'" [date]="data.modified" [description]="data.description"></proposed-user>
+        </div>
+    </div>
+</div>
+
+

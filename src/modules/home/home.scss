@@ -1,0 +1,13 @@
+body, html {
+  background-color: #e13126 !important;
+}
+
+#home {
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+
+  //-webkit-transition: width 0.6s; /* Safari */
+  //transition: width 0.6s;
+}
